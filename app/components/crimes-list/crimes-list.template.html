@@ -5,31 +5,17 @@
         <form class="form">
             <label for="month">Month</label>
             <select id="month" class="form-control" ng-model="$ctrl.month">
-                <option value="">Show All</option>
-                <option value="2016-11">November 2016</option>
-                <option value="2016-12">December 2016</option>
+                <option value="">Filter by Month</option>
+                <option ng-repeat="monthFilter in $ctrl.monthFilters" value="{{ monthFilter.value }}">{{ monthFilter.name }}</option>
             </select>
-        </form>
-    </div>
-    <div class="filters__column">
-        <form class="form">
-            <div><label for="month">Sort by Month</label></div>
-            <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" ng-click="$ctrl.sortMonth();">ASC</button>
-                <button type="button" class="btn btn-default" ng-click="$ctrl.sortMonth();">DES</button>
-            </div>
         </form>
     </div>
     <div class="filters__column">
         <form class="form">
             <label for="category">Category</label>
             <select id="category" class="form-control" ng-model="$ctrl.category">
-                <option value="">Show all</option>
-                <option value="anti-social-behaviour">anti-social-behaviour</option>
-                <option value="other-crime">other-crime</option>
-                <option value="shoplifting">shoplifting</option>
-                <option value="theft-from-the-person">theft-from-the-person</option>
-                <option value="violent-crime">violent-crime</option>
+                <option value="">Filter by Category</option>
+                <option ng-repeat="categoryFilter in $ctrl.categoryFilters" value="{{ categoryFilter.value }}">{{ categoryFilter.name }}</option>
             </select>
         </form>
     </div>
@@ -39,10 +25,9 @@
 <dir-pagination-controls max-size="7" template-url="../../bower_components/angularUtils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
 
 <!-- crime cards -->
-<div class="card-crime" dir-paginate="  crime in $ctrl.crimes |  
-                                        filter: $ctrl.category | 
+<div class="card-crime" dir-paginate="  crime in $ctrl.crimes |
                                         filter: $ctrl.month |
-                                        orderBy: $ctrl.monthOrder |
+                                        filter: $ctrl.category |
                                         itemsPerPage: $ctrl.pageSize" current-page="$ctrl.currentPage">
 
     <div class="clearfix card-crime__top">
