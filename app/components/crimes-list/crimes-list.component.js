@@ -12,7 +12,7 @@ crimesList.component('crimesList', {
         // create component scoped variables
         var self            = this;
         self.currentPage    = 1;
-        self.pageSize       = 5;
+        self.pageSize       = 20;
 
         self.monthFilters = [
             { name : 'November 2016', value : '2016-11' },
