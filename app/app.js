@@ -7,5 +7,6 @@
 'use strict';
 
 angular.module('crimesViewerApp', [
-  'crimesList'
+  'crimesList',
+  'appHeader'
 ]);
