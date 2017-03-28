@@ -5,6 +5,6 @@
                     A pagination directive is also added into this module as a dependancy.
 */
 
-angular.module('crimesList', [
+var crimesList = angular.module('crimesList', [
     'angularUtils.directives.dirPagination'
 ]);

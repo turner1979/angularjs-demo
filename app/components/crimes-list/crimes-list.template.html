@@ -5,7 +5,7 @@
         <form class="form">
             <label for="month">Month</label>
             <select id="month" class="form-control" ng-model="$ctrl.month">
-                <option value="">Filter by Month</option>
+                <option value="">-- Filter by Month --</option>
                 <option ng-repeat="monthFilter in $ctrl.monthFilters" value="{{ monthFilter.value }}">{{ monthFilter.name }}</option>
             </select>
         </form>
@@ -14,7 +14,7 @@
         <form class="form">
             <label for="category">Category</label>
             <select id="category" class="form-control" ng-model="$ctrl.category">
-                <option value="">Filter by Category</option>
+                <option value="">-- Filter by Category --</option>
                 <option ng-repeat="categoryFilter in $ctrl.categoryFilters" value="{{ categoryFilter.value }}">{{ categoryFilter.name }}</option>
             </select>
         </form>

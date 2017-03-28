@@ -36,7 +36,7 @@ body {
   display: inline-block;
   padding: 0.5em 1rem;
   border-radius: 2em;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .filters .filters__column {

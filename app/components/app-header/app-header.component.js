@@ -5,16 +5,14 @@
 
 */
 
-angular
-    .module('appHeader')
-    .component('appHeader', {
-        templateUrl: 'components/app-header/app-header.template.html',
-        controller: function AppHeaderController() {
+appHeader.component('appHeader', {
+    templateUrl: 'components/app-header/app-header.template.html',
+    controller: function AppHeaderController() {
 
-            // create component scoped variables
-            var self = this; 
-            self.title = 'Crimes Viewer App';
-            self.author = 'Scott Turner'
+        // create component scoped variables
+        var self = this; 
+        self.title = 'Crimes Viewer App';
+        self.author = 'Scott Turner'
 
-        }
-    });
+    }
+});

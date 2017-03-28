@@ -4,4 +4,4 @@
     Description:    Creates the appHeader module injected into the crimesViewerApp using dependancy injection.
 */
 
-angular.module('appHeader', []);
+var appHeader = angular.module('appHeader', []);
