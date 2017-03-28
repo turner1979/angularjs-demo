@@ -1,5 +1,19 @@
 /* app css stylesheet */
 
+.content {
+  padding: 1rem;
+}
+
+.card-crime {
+  padding: 1.5rem;
+  -webkit-box-shadow: 5px 2px 19px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 2px 19px -5px rgba(0,0,0,0.75);
+  box-shadow: 5px 2px 19px -5px rgba(0,0,0,0.75);
+  margin-bottom: 1rem;
+}
+
+
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

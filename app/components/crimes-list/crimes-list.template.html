@@ -1,0 +1,7 @@
+
+<div class="card-crime" ng-repeat="crime in $ctrl.crimes">
+    <div class="card-crime__category">{{ crime.category }}</div>
+    <div class="card-crime__month">{{ crime.month }}</div>
+    <div class="card-crime__outcome">{{ crime.outcome }}</div>
+    <div class="card-crime__location">{{ crime.location.street.name }}</div>
+</div>
