@@ -1,6 +1,11 @@
 'use strict';
 
+angular.module('crimesViewerApp', [
+  'crimesList'
+]);
+
 // Declare app level module which depends on views, and components
+/*
 angular.module('myApp', [
   'ngRoute',
   'myApp.view1',
@@ -12,3 +17,4 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
+*/
