@@ -1,4 +1,11 @@
 /* app css stylesheet */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+}
 
 .content {
   background: #eee;
@@ -22,4 +29,18 @@
 
 .card-crime .card-crime__category {
   text-align: right;
+}
+
+.card-crime  .card-crime__category span {
+  background: #eee;
+  display: inline-block;
+  padding: 0.5em 1rem;
+  border-radius: 2em;
+  font-size: 1rem;
+}
+
+.filters .filters__column {
+  float: left;
+  width: 33.33333333333333%;
+  text-align: center;
 }

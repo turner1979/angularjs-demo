@@ -1,42 +1,59 @@
 
 <!-- filters -->
-<form class="form-inline">
-    <div>
-        <label for="month">Month</label>
-        <select id="month" class="form-control" ng-model="month">
-            <option value="">Show all</option>
-            <option value="2016-11">November 2016</option>
-            <option value="2016-12">December 2016</option>
-        </select>
+<div class="filters clearfix">
+    <div class="filters__column">
+        <form class="form">
+            <label for="month">Month</label>
+            <select id="month" class="form-control" ng-model="$ctrl.month">
+                <option value="">Show All</option>
+                <option value="2016-11">November 2016</option>
+                <option value="2016-12">December 2016</option>
+            </select>
+        </form>
     </div>
-    <div>
-        <label for="month">Sort by Month</label>
-        <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default">ASC</button>
-            <button type="button" class="btn btn-default">DES</button>
-        </div>
+    <div class="filters__column">
+        <form class="form">
+            <div><label for="month">Sort by Month</label></div>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" ng-click="$ctrl.sortMonth();">ASC</button>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.sortMonth();">DES</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="category">Category</label>
-        <input type="text" class="form-control" id="category" placeholder="Enter category" ng-model="category" />
+    <div class="filters__column">
+        <form class="form">
+            <label for="category">Category</label>
+            <select id="category" class="form-control" ng-model="$ctrl.category">
+                <option value="">Show all</option>
+                <option value="anti-social-behaviour">anti-social-behaviour</option>
+                <option value="other-crime">other-crime</option>
+                <option value="shoplifting">shoplifting</option>
+                <option value="theft-from-the-person">theft-from-the-person</option>
+                <option value="violent-crime">violent-crime</option>
+            </select>
+        </form>
     </div>
-</form>
+</div>
 
 <!-- pagination -->
-<dir-pagination-controls 
-    max-size="7" 
-    template-url="../../bower_components/angularUtils-pagination/dirPagination.tpl.html"
-    on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+<dir-pagination-controls max-size="7" template-url="../../bower_components/angularUtils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
 
 <!-- crime cards -->
-<div class="card-crime" dir-paginate="crime in $ctrl.crimes |  filter:category | filter: month | itemsPerPage: $ctrl.pageSize" current-page="$ctrl.currentPage">
+<div class="card-crime" dir-paginate="  crime in $ctrl.crimes |  
+                                        filter: $ctrl.category | 
+                                        filter: $ctrl.month |
+                                        orderBy: $ctrl.monthOrder |
+                                        itemsPerPage: $ctrl.pageSize" current-page="$ctrl.currentPage">
+
     <div class="clearfix card-crime__top">
-        <div class="card-crime__date"><strong>{{ crime.month }}</strong></div>
-        <div class="card-crime__category">{{ crime.category }}</div>
+        <div class="card-crime__date"><strong>Incident Date:</strong> {{ crime.month | date: 'MMM yyyy' }}</div>
+        <div class="card-crime__category"><span> {{ crime.category }}</span></div>
     </div>
     <div class="clearfix card-crime__bottom">
-        <div class="card-crime__outcome">{{ crime.outcome_status.catgory }}</div>
-        <div class="card-crime__location">{{ crime.location.street.name }}</div>
+        <div ng-if="crime.outcome_status.category">
+            <div class="card-crime__outcome"><strong>Outcome:</strong> {{ crime.outcome_status.category }}</div>
+        </div>
+        <div class="card-crime__location"><strong>Location:</strong> {{ crime.location.street.name }}</div>
     </div>
 </div>
 
