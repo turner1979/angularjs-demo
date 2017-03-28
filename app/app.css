@@ -1,15 +1,27 @@
 /* app css stylesheet */
 
 .content {
-  padding: 1rem;
+  background: #eee;
+  padding: 2rem;
 }
 
 .card-crime {
-  padding: 1.5rem;
+  background: #fff;
+  padding: 1rem;
   -webkit-box-shadow: 5px 2px 19px -5px rgba(0,0,0,0.75);
   -moz-box-shadow: 5px 2px 19px -5px rgba(0,0,0,0.75);
   box-shadow: 5px 2px 19px -5px rgba(0,0,0,0.75);
   margin-bottom: 1rem;
+}
+
+.card-crime .card-crime__category,
+.card-crime .card-crime__date {
+  float: left;
+  width: 50%;
+}
+
+.card-crime .card-crime__category {
+  text-align: right;
 }
 
 

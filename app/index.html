@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,35 +10,36 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 </head>
-<body ng-app="crimesViewerApp">
 
-  <h1>Crimes Viewer App</h1>
+<body ng-app="crimesViewerApp">
 
   <div class="content">
     <crimes-list></crimes-list>
   </div>
-  <!--
-  <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
-  </ul>
-  -->
-
-  <!--div ng-view></div-->
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+
+  <!-- change bootstrap to use local bower installed assets -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- load angularjs framework -->
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
+
+  <!-- load the app entry point -->
   <script src="app.js"></script>
+
+  <!-- load the app modules and component files -->
   <script src="components/crimes-list/crimes-list.module.js"></script>
   <script src="components/crimes-list/crimes-list.component.js"></script>
-  <!--script src="view1/view1.js"></script-->
-  <!--script src="view2/view2.js"></script-->
-  <!--script src="components/version/version.js"></script-->
-  <!--script src="components/version/version-directive.js"></script-->
-  <!--script src="components/version/interpolate-filter.js"></script-->
+
+  <!-- load the pagination directive -->
+  <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+
 </body>
 </html>

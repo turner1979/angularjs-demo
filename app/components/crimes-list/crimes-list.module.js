@@ -1,2 +1,4 @@
 
-angular.module('crimesList', []);
+angular.module('crimesList', [
+    'angularUtils.directives.dirPagination'
+]);

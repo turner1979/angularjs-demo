@@ -1,7 +1,42 @@
 
-<div class="card-crime" ng-repeat="crime in $ctrl.crimes">
-    <div class="card-crime__category">{{ crime.category }}</div>
-    <div class="card-crime__month">{{ crime.month }}</div>
-    <div class="card-crime__outcome">{{ crime.outcome }}</div>
-    <div class="card-crime__location">{{ crime.location.street.name }}</div>
+<!-- filters -->
+<form class="form-inline">
+    <div>
+        <label for="month">Month</label>
+        <select id="month" class="form-control" ng-model="month">
+            <option value="">Show all</option>
+            <option value="2016-11">November 2016</option>
+            <option value="2016-12">December 2016</option>
+        </select>
+    </div>
+    <div>
+        <label for="month">Sort by Month</label>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">ASC</button>
+            <button type="button" class="btn btn-default">DES</button>
+        </div>
+    </div>
+    <div>
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" placeholder="Enter category" ng-model="category" />
+    </div>
+</form>
+
+<!-- pagination -->
+<dir-pagination-controls 
+    max-size="7" 
+    template-url="../../bower_components/angularUtils-pagination/dirPagination.tpl.html"
+    on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+
+<!-- crime cards -->
+<div class="card-crime" dir-paginate="crime in $ctrl.crimes |  filter:category | filter: month | itemsPerPage: $ctrl.pageSize" current-page="$ctrl.currentPage">
+    <div class="clearfix card-crime__top">
+        <div class="card-crime__date"><strong>{{ crime.month }}</strong></div>
+        <div class="card-crime__category">{{ crime.category }}</div>
+    </div>
+    <div class="clearfix card-crime__bottom">
+        <div class="card-crime__outcome">{{ crime.outcome_status.catgory }}</div>
+        <div class="card-crime__location">{{ crime.location.street.name }}</div>
+    </div>
 </div>
+
